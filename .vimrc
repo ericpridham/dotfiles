@@ -85,6 +85,8 @@ set re=1
 " Stop SQL language files from doing unholy things to the C-c key
 let g:omni_sql_no_default_maps = 1
 
+set number
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CUSTOM AUTOCMDS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -159,6 +161,9 @@ imap <c-c> <esc>
 nnoremap <leader><leader> <c-^>
 " Align selected lines
 vnoremap <leader>ib :!align<cr>
+
+nnoremap <leader>sr :vsplit<cr>
+nnoremap <leader>sd :split<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MULTIPURPOSE TAB KEY
@@ -531,13 +536,12 @@ function! SelectaFile(path, glob, command)
 endfunction
 
 nnoremap <leader>f :call SelectaFile(".", "*", ":edit")<cr>
-nnoremap <leader>gv :call SelectaFile("app/views", "*", ":edit")<cr>
-nnoremap <leader>gc :call SelectaFile("app/controllers", "*", ":edit")<cr>
+nnoremap <leader>gv :call SelectaFile("resources/views", "*", ":edit")<cr>
+nnoremap <leader>gc :call SelectaFile("app/http/controllers", "*", ":edit")<cr>
 nnoremap <leader>gm :call SelectaFile("app/models", "*", ":edit")<cr>
-nnoremap <leader>gh :call SelectaFile("app/helpers", "*", ":edit")<cr>
-nnoremap <leader>gl :call SelectaFile("lib", "*", ":edit")<cr>
 nnoremap <leader>gp :call SelectaFile("public", "*", ":edit")<cr>
-nnoremap <leader>gs :call SelectaFile("app/assets/stylesheets", "*.sass", ":edit")<cr>
+nnoremap <leader>gs :call SelectaFile("resources/sass", "*.sass", ":edit")<cr>
+nnoremap <leader>gj :call SelectaFile("resources/js", "*", ":edit")<cr>
 nnoremap <leader>e :call SelectaFile(expand('%:h'), "*", ":edit")<cr>
 nnoremap <leader>v :call SelectaFile(expand('%:h'), "*", ":view")<cr>
 
